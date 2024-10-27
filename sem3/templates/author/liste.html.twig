@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>name</th>
+    <th>img</th>
+  </tr>
+  {% for authors in authors %}
+  <tr>
+    <td>{{ authors.name }}</td>
+    <td><img src="{{ authors.picture }}" alt="{{ authors.name }}"></td>
+  </tr>
+  {% endfor %}
+</table>

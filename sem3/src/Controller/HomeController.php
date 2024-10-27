@@ -15,4 +15,10 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    #[Route('/home/go-to-index', name: 'app_home_go_to_index')]
+    public function goToIndex(): Response
+    {
+        return $this->redirect('/');
+    }
 }
