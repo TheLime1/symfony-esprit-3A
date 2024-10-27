@@ -1,0 +1,20 @@
+La liste des authors
+<table border="1">
+    <tr><th>Id</th><th>Picture</th><th>Username</th>
+        <th>Email</th><th>Nb Books</th><th>Details</th>
+    </tr>
+    
+{%for a in auth%}
+<tr>
+  <td>{{a.id}}</td>
+  <td><img src="{{asset(a.picture)}}"></td>
+  <td>{{a.username |upper}}</td>
+  <td>{{a.email}}</td>
+  <td>{{a.nb_books}}</td>
+  <td><a href="{{path('DD',{'i':a.id})}}">Detail </a></td>
+</tr>
+{%else%} <br> Tableau NotFound
+{%endfor%}
+</table>
+
+La longeur du tableau est : {{auth |length}}

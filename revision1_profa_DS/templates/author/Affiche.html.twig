@@ -1,0 +1,22 @@
+<h1>Liste of authors</h1>
+<table border=1>
+    <tr>
+        <th>Username</th>
+        <th>Email</th><th>Details</th><th>Delete</th>
+    </tr>
+    {%for a in auth%}
+        <tr>
+            <td>{{a.username}}</td>
+            <td>{{a.email}}</td>
+            
+            <td><a href="{{path('Det',{'i':a.id})}}">Detail</a></td>
+            <td><a href="{{path('Del',{'i':a.id})}}">Delete</a></td>
+            <td>
+                
+               <form method="" action="{{path('Up',{'i':a.id})}}"> <input type="submit" value="Update"></form>
+
+            </td>
+
+        </tr>
+    {%endfor%}
+</table>

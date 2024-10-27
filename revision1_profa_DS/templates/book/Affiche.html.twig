@@ -1,0 +1,27 @@
+<form action="{{path('SearchRef')}}" method="">
+<input type="text" placeholder="search" name="rr">
+<input type="submit" value="Search">
+</form>
+<form action="{{path('DateBook')}}" method="">
+    <input type="date" placeholder="date Debut" name="dd">
+    <input type="date" placeholder="date Fin" name="df">
+    <input type="submit" value="Search">
+    </form>
+{%set nb_publishe=0%}
+{%set nb_unpublishe=0%}
+{%for b in book%}
+    <ul>
+        <li>Ref: {{b.ref}}</li>
+        <li>Title: {{b.title}}</li>
+        <li>Category: {{b.category}}</li>
+        <li>Date Publication: {{b.publicationDate |date}}</li>
+        <li>enabled: {{b.enabled}}</li>
+        <li>Author: {{b.authors.username}}</li>
+    </ul>
+   {% if b.enabled==true%}
+   {%set nb_publishe=nb_publishe+1%}
+   {%else%} {%set nb_unpublishe=nb_unpublishe+1%}
+   {%endif%}
+{%endfor%}
+<h1>Published Book {{nb_publishe}}</h1>
+<h1>Unpublished Book {{nb_unpublishe}} </h1>
